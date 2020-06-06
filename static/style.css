@@ -1,0 +1,46 @@
+html body {
+    background-color: #43464B;
+    color:#F9F9F9;
+  }
+
+  #title{
+    padding-top: 10px;
+    position: relative;
+    text-align: center;
+  }
+
+  #spotifyLogo{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 50%;
+    width:50%;
+    left:24%;
+  }
+
+  #selectFeatures{
+    padding-top: 3em;
+    text-align: center;
+  }
+
+  #selectSong{
+    padding-top: 3em;
+    text-align: center;
+  }
+
+  #searchSong{
+    width:70%;
+    text-align: center;
+    position: relative;
+    margin-left: 13%;
+
+  }
+
+  .selbut{
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .btn{
+    margin-left:.5em;
+  }
