@@ -1,30 +1,4 @@
-<?php
-  if(!empty($_POST['search'])){
-
-    $db_connect = pg_connect("host=localhost dbname=SpotifyData user=postgres password=giao");
-    if (!$db_connect){
-        echo "An error occurred.\n";
-        exit;
-      }
-
-    $q = pg_escape_string($db_connect, $_POST['q']);
-    $q = '%'.$q.'%';
-    //Query should ignore apostriphies and commas
-    $sql = pg_query($db_connect,"SELECT title, artists FROM simplesong WHERE title ILIKE '$q' LIMIT 10");
-
-    $response = "<ul><li>No data found</li></ul>";
-    if(pg_num_rows($sql) > 0){
-      $response = "<ul>";
-
-      while($data = pg_fetch_array($sql))
-        $response .="<li>" .$data['title']."</li>";
-
-      $response .="</ul>";
-    }
-    exit($response);
-  }
-?>
-
+<?php include 'query.php'?>
 
 <html lang="en">
   <head>
@@ -114,10 +88,8 @@
             </select>
           </div>
           <input type="text" class="form-control" name='songsearch' id='songsearch'>
-          <div id='response' class='container' style="background-color:red;">
-          </div>
-
-
+          <div id='response' class='container'></div>
+          
           <script src="autocomplete.js" type="text/javascript"></script>
 
 

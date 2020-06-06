@@ -33,7 +33,21 @@ html body {
     text-align: center;
     position: relative;
     margin-left: 13%;
+  }
 
+  #response{
+    color:black;
+  }
+
+  li{
+    list-style: none;
+    border: 1px solid black;
+    background-color: white;
+  }
+
+  li:hover{
+    color:#1CB854;
+    background-color: #2A2725;
   }
 
   .selbut{
