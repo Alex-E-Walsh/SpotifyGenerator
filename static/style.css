@@ -29,20 +29,35 @@ html body {
   }
 
   #searchSong{
-    width:70%;
+    width:50%;
     text-align: center;
     position: relative;
-    margin-left: 13%;
+    left: 25%;
   }
 
   #response{
     color:black;
   }
 
+  #submitPlaylist{
+    padding-top: 15px;
+    text-align: center;
+  }
+
+  #songPreview{
+    /* position: relative; */
+    text-align: center;
+    padding-bottom: 4px;
+  }
+
   li{
+    position: relative;
     list-style: none;
-    border: 1px solid black;
+    border: .5px solid gray;
     background-color: white;
+    right: 16%;
+    width: 120%;
+
   }
 
   li:hover{

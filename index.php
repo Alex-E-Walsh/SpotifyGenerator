@@ -1,4 +1,5 @@
 <?php include 'query.php'?>
+<!-- <?php include 'callPy.php'?> -->
 
 <html lang="en">
   <head>
@@ -24,8 +25,7 @@
 
 
   <!-- <img id='spotifyLogo' src = "static/images/spotifylogo.png"> -->
-
-  <form>
+  <form name='select_features'>
     <div id = 'selectFeatures' class='container-fluid align-self-center'>
       <h4> Choose Features: </h4>
       <p> Select the following audio features to include when generating a playlist</p>
@@ -80,16 +80,15 @@
 
       <div id = "selectSong" class='container-lg'>
         <h4>Choose Song:</h4>
+        <div id="songPreview">
+          <iframe id="SelectedSongPreview" src="" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
         <div id ="searchSong" class="input-group">
           <div class="input-group-prepend">
-            <select class="custom-select" id="inputGroupSelect01">
-              <option value="1">Song Title</option>
-              <option value="2">Artist</option>
-            </select>
           </div>
           <input type="text" class="form-control" name='songsearch' id='songsearch'>
           <div id='response' class='container'></div>
-          
+
           <script src="autocomplete.js" type="text/javascript"></script>
 
 
@@ -99,7 +98,15 @@
 
       </div>
 
+
+
+      <div id = "submitPlaylist" class="container">
+        <input  type="submit" action="" method ="post" class="btn btn-outline-success" value="Generate Playlist">
+      </div>
+
 </form>
+
+
 
 
   </body>
