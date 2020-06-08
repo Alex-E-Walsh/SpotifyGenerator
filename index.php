@@ -1,5 +1,4 @@
 <?php include 'query.php'?>
-<!-- <?php include 'callPy.php'?> -->
 
 <html lang="en">
   <head>
@@ -11,6 +10,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
   </head>
 
@@ -22,7 +23,9 @@
 
   </header>
 
-
+  <div id="songPreview">
+    <iframe src="https://open.spotify.com/embed/track/0hNduWmlWmEmuwEFcYvRu1" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  </div>
 
   <!-- <img id='spotifyLogo' src = "static/images/spotifylogo.png"> -->
   <form name='select_features'>
@@ -30,52 +33,27 @@
       <h4> Choose Features: </h4>
       <p> Select the following audio features to include when generating a playlist</p>
   </div>
-    <div class="container">
-      <div class="btn-group-toggle selbut" data-toggle="buttons">
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> acousticness </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> speechiness </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> danceability </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> energy </input>
-        </label>
+    <div class="container" id="AudioFeatSelect">
+      <div class="row">
+        <input type="checkbox" data-toggle="toggle" data-on="Acousticness" data-off="Acousticness" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Speechiness" data-off="Speechiness" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Dancebility" data-off="Dancebility" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Energy" data-off="Energy" data-onstyle="success">
+      </div>
+      <div class="row">
+        <input type="checkbox" data-toggle="toggle" data-on="Tempo" data-off="Tempo" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Liveness" data-off="Liveness" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Instrumentalness" data-off="Instrumentalness" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="loudness" data-off="loudness" data-onstyle="success">
+      </div>
+      <div class="row">
+        <input type="checkbox" data-toggle="toggle" data-on="Mode" data-off="Mode" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Popularity" data-off="Popularity" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Valence" data-off="Valence" data-onstyle="success">
+        <input type="checkbox" data-toggle="toggle" data-on="Key" data-off="Key" data-onstyle="success">
+      </div>
       </div>
 
-      <div class="btn-group-toggle selbut" data-toggle="buttons">
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> tempo </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> liveness </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> instrumentalness </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> loudness </input>
-        </label>
-      </div>
-
-      <div class="btn-group-toggle selbut" data-toggle="buttons">
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> mode </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> popularity </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> valence </input>
-        </label>
-        <label class="btn btn-secondary btn-outline-success">
-          <input type="checkbox" checked autocomplete="off"> key </input>
-        </label>
-      </div>
-      </div>
 
 
       <div id = "selectSong" class='container-lg'>

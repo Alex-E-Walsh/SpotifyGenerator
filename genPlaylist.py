@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.neighbors import NearestNeighbors as nn
 import requests
 import json
-import spotipy
+# import spotipy
 # sp = spotipy.Spotify()
 # from spotipy.oauth2 import SpotifyClientCredentials
 # cid ="af2697ff1adb4b4baa20e069e032c4dd"

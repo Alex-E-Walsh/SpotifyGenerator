@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#SelectedSongPreview').hide();
+  // $('#SelectedSongPreview').hide();
 
   $('#songsearch').keyup(function() {
     var query = $('#songsearch').val();
@@ -46,7 +46,8 @@ $(document).ready(function() {
         success: function(data){
           var embedcode = "https://open.spotify.com/embed/track/".concat(data);
           $('#SelectedSongPreview').attr("src",embedcode);
-          $('#SelectedSongPreview').show();
+          console.log(embedcode);
+          // $('#SelectedSongPreview').show();
         }
       }
     );
