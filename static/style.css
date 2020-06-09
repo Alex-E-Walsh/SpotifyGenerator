@@ -23,6 +23,30 @@ html body {
     text-align: center;
   }
 
+  #secretCode{
+    display: none;
+  }
+
+  #playlistContainer{
+    /* text-align: center; */
+  }
+
+  #playlistGrid{
+    margin: 0 auto;
+    table-layout: auto;
+    font-size: 10px;
+    width:80%;
+
+
+  }
+
+  th,td{
+    /* width: 15px; */
+    text-align: justify;
+    overflow: hidden;
+
+  }
+
   #selectSong{
     padding-top: 3em;
     text-align: center;
@@ -70,9 +94,11 @@ html body {
     justify-content: space-around;
   }
 
-  #features{
+  #featuresSelect{
     width:70%;
     max-width: 500px;
+    min-width: 400px;
+    /* min-height: 150px; */
 
   }
 

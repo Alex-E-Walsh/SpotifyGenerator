@@ -32,7 +32,7 @@
       <h4> Choose Features: </h4>
       <p> Select the following audio features to include when generating a playlist</p>
   </div>
-      <div class="container" id="features">
+      <div class="container" id="featuresSelect">
           <div class="featrow row">
             <input name = "audiofeature" id = "acousticness" value = "acousticness" type="checkbox" data-toggle="toggle" data-on="Acousticness" data-off="Acousticness" data-onstyle="success">
             <input name = "audiofeature" id = "speechiness" value = "speechiness" type="checkbox" data-toggle="toggle" data-on="Speechiness" data-off="Speechiness" data-onstyle="success">
@@ -75,16 +75,41 @@
         <input id="submit" name="submit" class="btn btn-outline-success" value="Generate Playlist">
       </div>
 </form>
+  <p id="secretCode">null</p>
+
+  <div class="table-responsive" >
+    <table id="playlistGrid" class="table table-bordered table-dark table-striped table-hover table-sm">
+      <thead>
+        <tr id='playlistFeatures'>
+          <th id="name">Title</th>
+          <th id="artists">Artists</th>
+          <th id="year">year</th>
+          <th id="acousticness">Acousticness</th>
+          <th id='danceability'>danceability</th>
+          <th id="energy">energy</th>
+          <th id="instrumentalness">instrumentalness</th>
+          <th id="key">key</th>
+          <th id="liveness">liveness</th>
+          <th id="loudness">loudness</th>
+          <th id="mode">mode</th>
+          <th id="popularity">popularity</th>
+          <th id="speechiness">speechiness</th>
+          <th id="tempo">tempo</th>
+          <th id="valence">valence</th>
+          <th id="distance">distance</th>
+        </tr>
+      </thead>
 
 
-
+    </table>
+  </div>
   </body>
 
   <footer>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </footer>
 
 </html>

@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $('#SelectedSongPreview').hide();
+  $('#playlistGrid').hide();
 
   $('#songsearch').keyup(function() {
     var query = $('#songsearch').val();
@@ -44,8 +45,9 @@ $(document).ready(function() {
           console.log('unable to call script');
         },
         success: function(data){
+          $('#secretCode').html(data);
           var embedcode = "https://open.spotify.com/embed/track/".concat(data);
-          console.log(embedcode);
+          // console.log(embedcode);
           $('#SelectedSongPreview').attr("src",embedcode);
           $('#SelectedSongPreview').show();
         }
@@ -61,13 +63,40 @@ $(document).ready(function() {
     selectFeatures.push($(el).val());
   });
 
-  var selectedSong = $('#songsearch').val();
-  selectFeatures.push(selectedSong);
-  console.log(selectFeatures);
+  var selectedSongID = $('#secretCode').html();
+  selectFeatures.push(selectedSongID);
+  // console.log(selectFeatures);
 
+  var jsonArr = JSON.stringify(selectFeatures);
 
+  $.ajax(
+      {
+        url:'callPy.php',
+        method:'POST',
+        data:{features: jsonArr},
+        cache: false,
 
+      error: function() {
+        console.log("something went wrong");
+      },
+      success: function(data){
+        var df = JSON.parse(data);
+        console.log(df)
+        $('#playlistGrid').show();
 
+        var count = Object.keys(df).length;
+        var tblarr = Array('name','artists','year','acousticness','danceability','energy','instrumentalness','key','liveness','loudness','mode','popularity','speechiness','tempo','valence','distance');
+
+        //then use jquery to put playlist items in grid
+        for(var i = 0;i < 10;i++){
+          // for(var j = 0;j<10 )
+          // $('#playlistGrid').append("<tr>".concat(df[tblarr[0]][i]).concat("<tr>"));
+          console.log(df[tblarr[0]][i]);
+        }
+
+      }
+    }
+  );
   });
 
 });

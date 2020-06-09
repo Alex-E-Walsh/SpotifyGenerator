@@ -17,9 +17,16 @@ putenv("PATH=/usr/local/bin/:" . exec('echo $PATH'));
         $id = $result['id'];
       }
     }
-    $command = escapeshellcmd("python3 genPlaylist.py $id");
-    $output = shell_exec($command);
-    echo $output;
+    echo $id;
+  }
+
+
+  if(!empty($_POST['features'])){
+
+    $feats = $_POST['features'];
+    $command = escapeshellcmd("python3 genPlaylist.py $feats");
+    $playlist_json = shell_exec($command);
+    echo $playlist_json;
   }
 
 ?>
