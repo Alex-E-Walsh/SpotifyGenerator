@@ -2,7 +2,7 @@
 putenv("PATH=/usr/local/bin/:" . exec('echo $PATH'));
 //update route to correct python3
 
-$output = "didn't run script";
+//run when user clicks on song
   if(!empty($_POST['py'])){
     $songSelect = $_POST['sc'];
 
@@ -19,6 +19,7 @@ $output = "didn't run script";
     }
     $command = escapeshellcmd("python3 genPlaylist.py $id");
     $output = shell_exec($command);
+    echo $output;
   }
-  echo $output;
+
 ?>

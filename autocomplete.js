@@ -45,11 +45,27 @@ $(document).ready(function() {
         },
         success: function(data){
           var embedcode = "https://open.spotify.com/embed/track/".concat(data);
+          console.log(embedcode);
           $('#SelectedSongPreview').attr("src",embedcode);
           $('#SelectedSongPreview').show();
         }
       }
     );
+  });
+
+
+  $(document).on('click','#submit', function() {
+
+  var selectFeatures = Array();
+  $.map($("input[name='audiofeature']:checked"), function(el){
+    selectFeatures.push($(el).val());
+  });
+
+  var selectedSong = $('#songsearch').val();
+  selectFeatures.push(selectedSong);
+  console.log(selectFeatures);
+
+
 
 
   });

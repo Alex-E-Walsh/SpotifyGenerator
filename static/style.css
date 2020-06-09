@@ -65,11 +65,19 @@ html body {
     background-color: #2A2725;
   }
 
-  .selbut{
-    text-align: center;
-    padding-top: 10px;
+  .featrow{
+    padding-bottom: 10px;
+    justify-content: space-around;
   }
 
-  .btn{
-    margin-left:.5em;
+  #features{
+    width:70%;
+    max-width: 500px;
+
+  }
+
+  #submitBox{
+
+    padding-top: 10px;
+    text-align: center;
   }
