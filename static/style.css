@@ -42,9 +42,12 @@ html body {
 
   th,td{
     /* width: 15px; */
-    text-align: justify;
+    text-align: left;
     overflow: hidden;
+  }
 
+  tr:hover {
+    background-color: #423F40;
   }
 
   #selectSong{

@@ -44,7 +44,7 @@ distances, indicies = neighbor.kneighbors(X=audioVals,n_neighbors=10)
 rdf = pd.DataFrame(columns=df.columns)
 for i in indicies[0]:
     rdf = rdf.append(df.iloc[i],ignore_index=True)
-rdf['distance'] = pd.Series(distances[0], index=rdf.index)
+rdf['distance'] = pd.Series(distances[0].round(3), index=rdf.index)
 rdf.drop(['explicit','release_date','duration_ms'],axis=1,inplace=True)
 #store as JSON object
 rdf = rdf.to_json()

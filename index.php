@@ -99,8 +99,6 @@
           <th id="distance">distance</th>
         </tr>
       </thead>
-
-
     </table>
   </div>
   </body>

@@ -83,15 +83,15 @@ $(document).ready(function() {
         var df = JSON.parse(data);
         console.log(df)
         $('#playlistGrid').show();
-
-        var count = Object.keys(df).length;
         var tblarr = Array('name','artists','year','acousticness','danceability','energy','instrumentalness','key','liveness','loudness','mode','popularity','speechiness','tempo','valence','distance');
 
         //then use jquery to put playlist items in grid
         for(var i = 0;i < 10;i++){
-          // for(var j = 0;j<10 )
-          // $('#playlistGrid').append("<tr>".concat(df[tblarr[0]][i]).concat("<tr>"));
-          console.log(df[tblarr[0]][i]);
+          $("#playlistGrid").append("<tr id = songrow".concat(i.toString()).concat("></tr>"));
+          for(var j = 0;j<tblarr.length;j++){
+            $("#songrow".concat(i.toString())).append("<td>".concat(df[tblarr[j]][i]).concat("</td>"));
+          }
+
         }
 
       }
