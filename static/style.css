@@ -1,109 +1,90 @@
-
 html body {
     background-color: #191414;
     color:#F9F9F9;
     font-family: 'Ubuntu', sans-serif;
     padding-left: 15px;
+    min-width: 1140px;
   }
-
-
   hr{
     color: white;
     background-color: white;
   }
-
   .contentSep{
     width:60%;
     float:left;
   }
-
-
   #title{
     padding-top: 10px;
     position: relative;
     text-align: left;
     padding-left: 0px;
   }
-
   #spotifyLogo{
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
     opacity: 50%;
-    width:50%;
-    left:24%;
+    width:300px;
+    left: 460px;
+    top: 40px;
+    transform: rotate(20deg);
+    z-index: 0;
   }
-
+  #featureToggle{
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
   #selectFeatures{
     padding-top: 3em;
     text-align: left;
     padding-left: 0;
   }
-
   #secretCode{
     display: none;
   }
-
-  #playlistContainer{
-    /* text-align: center; */
-  }
-
   #playlistGrid{
-    margin: 0 auto;
     table-layout: auto;
     font-size: 10px;
-    width:80%;
+    width:85%;
   }
-
   th,td{
     text-align: left;
     overflow: hidden;
   }
-
    tr:hover {
     background-color: #423F40;
   }
-
   #featureDef{
     margin-top: 17px;
     width:38%;
     float:right;
   }
-
   #featureDef td{
-    font-size: 10px;
+    font-size: 12px;
   }
-
   #featureDef th{
     font-size: 12px;
     width:20px;
   }
-
   #selectSong{
     padding-top: 3em;
     text-align: left;
   }
-
   #searchSong{
     width:40%;
     text-align: left;
     position: relative;
   }
-
   #response{
     color:black;
+    padding-left: 6%;
   }
-
   #submitPlaylist{
     padding-top: 15px;
     text-align: left;
   }
-
   #songPreview{
     text-align: left;
     padding-bottom: 4px;
   }
-
   li{
     position: relative;
     list-style: none;
@@ -111,55 +92,53 @@ html body {
     background-color: white;
     right: 16%;
     width: 120%;
-
   }
-
   li:hover{
     color:#1CB854;
     background-color: #2A2725;
   }
-
   .featrow{
     padding-bottom: 10px;
     justify-content: space-between;
   }
-
   .audfeat{
     padding-left: 20%;
     background-color: #1DB954;
   }
-
-
   #featuresSelect{
     position: relative;
     max-width: 500px;
     min-width: 400px;
     margin-left:0;
-    /* float: left; */
-    /* min-height: 150px; */
   }
-
   #submitBox{
     padding-top: 10px;
     text-align: left;
     padding-left: 0%;
     margin-left: 0;
   }
-
+  #iframeBuild{
+    max-width: 900px;
+  }
+  #cr{
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
   .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    margin-top: 30px;
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #1DB954;
     border-radius: 50%;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
   }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 .disable-select {
   -webkit-user-select: none;
   -moz-user-select: none;
