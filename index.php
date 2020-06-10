@@ -3,6 +3,7 @@
 
 <html lang="en">
   <head>
+    <!-- Created by Alexander Walsh -->
     <meta charset="utf-8">
     <meta name="description" >
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,13 +18,10 @@
   </head>
 
   <body>
-
     <header id = 'title' class='page-header container-fluid align-self-center'>
       <h2>Audio Feature Playlist Generator</h2>
-      <!-- <p>Create an interactive playlist based on audio features you choose</p> -->
   </header>
   <hr class="contentSep">
-
   <table id="featureDef" class="table table-bordered table-dark table-striped table-hover table-sm">
     <tr>
       <th>Instrumentalness</th>
@@ -75,11 +73,11 @@
     </tr>
   </table>
 
-  <!-- <img id='spotifyLogo' src = "static/images/spotifylogo.png"> -->
+  <img id='spotifyLogo' src = "static/spotifylogo.png">
   <form name='select_features' onsubmit="return false">
     <div id = 'selectFeatures' class='container-fluid align-self-center'>
       <h4> Choose Features: </h4>
-      <!-- <p> Select the following audio features to include when generating a playlist</p> -->
+      <button id="featureToggle" class = "btn btn-outline-success">Show Audio Feature Definitions</button>
   </div>
       <div class="container" id="featuresSelect">
           <div class="featrow row">
@@ -101,9 +99,7 @@
             <input  class = "audfeat" name = "audiofeature" id = "key" value = "key" type="checkbox" data-toggle="toggle" data-on="Key" data-off="Key" data-onstyle="success">
           </div>
         </div>
-
     <hr class="contentSep">
-
       <div id = "selectSong" class='container-lg'>
         <h4>Choose Song:</h4>
         <div id="songPreview">
@@ -114,27 +110,17 @@
           </div>
           <input type="text" class="form-control" name='songsearch' id='songsearch'>
           <div id='response' class='container'></div>
-          <script src="autocomplete.js" type="text/javascript"></script>
+          <script src="update.js" type="text/javascript"></script>
         </div>
-
     </div>
       </div>
       <div class="container disable-select" id="submitBox">
         <button id="submit" name="submit" class="btn btn-outline-success">Generate Playlist</button>
       </div>
   <div id = "loader" class="loader"></div>
-
 </form>
-
-
-
-
-
-
-
   <p id="secretCode">null</p>
-
-  <div class="table-responsive" >
+  <div class="table-responsive">
     <table id="playlistGrid" class="table table-bordered table-dark table-striped table-hover table-sm">
       <thead>
         <tr id='playlistFeatures'>
@@ -156,15 +142,19 @@
           <th id="distance">distance</th>
         </tr>
       </thead>
+      <tbody id="playlistBody">
+      </tbody>
     </table>
   </div>
+  <div id="iframeBuild"></div>
+
   </body>
 
+  <p id='cr'>&copy; Created by Alex Walsh.</p>
+
   <footer>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </footer>
-
 </html>

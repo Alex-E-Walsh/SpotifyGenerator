@@ -2,18 +2,7 @@ import sys
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import NearestNeighbors as nn
-import requests
-import json
-import base64
 import joblib
-# import spotipy
-# sp = spotipy.Spotify()
-# from spotipy.oauth2 import SpotifyClientCredentials
-# cid ="af2697ff1adb4b4baa20e069e032c4dd"
-# secret = "c27d4eb2db9945a0b1a4944f77519414"
-# client_credentials_manager = SpotifyClientCredentials(client_id=cid, client_secret=secret)
-# sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-# sp.trace=False
 
 #read in dataframe
 df = pd.read_csv("spotify_data/cleaned_df.csv")

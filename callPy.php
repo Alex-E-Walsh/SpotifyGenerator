@@ -5,7 +5,6 @@ putenv("PATH=/usr/local/bin/:" . exec('echo $PATH'));
 //run when user clicks on song
   if(!empty($_POST['py'])){
     $songSelect = $_POST['sc'];
-
     $db_connect = pg_connect("host=localhost dbname=SpotifyData user=postgres password=giao");
     if (!$db_connect){
         echo "UNABLE TO CONNECT TO DATABASE.\n";
@@ -19,14 +18,10 @@ putenv("PATH=/usr/local/bin/:" . exec('echo $PATH'));
     }
     echo $id;
   }
-
-
   if(!empty($_POST['features'])){
-
     $feats = $_POST['features'];
     $command = escapeshellcmd("python3 genPlaylist.py $feats");
     $playlist_json = shell_exec($command);
     echo $playlist_json;
   }
-
 ?>

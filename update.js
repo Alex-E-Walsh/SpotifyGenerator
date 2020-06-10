@@ -2,6 +2,7 @@ $(document).ready(function() {
   $('#SelectedSongPreview').hide();
   $('#playlistGrid').hide();
   $('#loader').hide();
+  $('#featureDef').hide();
 
   $('#songsearch').keyup(function() {
     $('#submit').hide();
@@ -50,7 +51,6 @@ $(document).ready(function() {
         success: function(data){
           $('#secretCode').html(data);
           var embedcode = "https://open.spotify.com/embed/track/".concat(data);
-          // console.log(embedcode);
           $('#SelectedSongPreview').attr("src",embedcode);
           $('#SelectedSongPreview').show();
         }
@@ -60,6 +60,7 @@ $(document).ready(function() {
 
 
   $(document).on('click','#submit', function() {
+    $('#playlistGrid').hide();
     var selectFeatures = Array();
     $.map($("input[name='audiofeature']:checked"), function(el){
       selectFeatures.push($(el).val());
@@ -92,20 +93,34 @@ $(document).ready(function() {
         },
         success: function(data){
           var df = JSON.parse(data);
-          console.log(df)
+          $('#playlistBody').html("");
+          $('#iframeBuild').html("");
           $('#playlistGrid').show();
           var tblarr = Array('name','artists','year','acousticness','danceability','energy','instrumentalness','key','liveness','loudness','mode','popularity','speechiness','tempo','valence','distance');
-
           //then use jquery to put playlist items in grid
           for(var i = 0;i < 10;i++){
-            $("#playlistGrid").append("<tr id = songrow".concat(i.toString()).concat("></tr>"));
+            $("#playlistBody").append("<tr id = songrow".concat(i.toString()).concat("></tr>"));
             for(var j = 0;j<tblarr.length;j++){
               $("#songrow".concat(i.toString())).append("<td>".concat(df[tblarr[j]][i]).concat("</td>"));
             }
+          }
+          //Create Iframe playlist
+          for (var i = 1;i<10;i++){
+            var code = "https://open.spotify.com/embed/track/".concat(df["id"][i]);
+            $("#iframeBuild").append("<iframe  src=".concat(code).concat(" width='300' height='80' frameborder='0' allowtransparency='true' allow='encrypted-media'></iframe>"));
           }
           $('#loader').hide();
         }
       }
     );
+  });
+  $(document).on('click','#featureToggle',function () {
+    if($('#featureDef').is(":visible")){
+      $('#featureDef').hide();
+      $('#featureToggle').html("Show Audio Feature Definitions");
+    }else{
+      $('#featureDef').show();
+      $('#featureToggle').html("Hide Audio Feature Definitions");
+    }
   });
 });
