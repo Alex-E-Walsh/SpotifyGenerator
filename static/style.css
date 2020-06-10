@@ -1,12 +1,28 @@
+
 html body {
-    background-color: #43464B;
+    background-color: #191414;
     color:#F9F9F9;
+    font-family: 'Ubuntu', sans-serif;
+    padding-left: 15px;
   }
+
+
+  hr{
+    color: white;
+    background-color: white;
+  }
+
+  .contentSep{
+    width:60%;
+    float:left;
+  }
+
 
   #title{
     padding-top: 10px;
     position: relative;
-    text-align: center;
+    text-align: left;
+    padding-left: 0px;
   }
 
   #spotifyLogo{
@@ -20,7 +36,8 @@ html body {
 
   #selectFeatures{
     padding-top: 3em;
-    text-align: center;
+    text-align: left;
+    padding-left: 0;
   }
 
   #secretCode{
@@ -36,30 +53,41 @@ html body {
     table-layout: auto;
     font-size: 10px;
     width:80%;
-
-
   }
 
   th,td{
-    /* width: 15px; */
     text-align: left;
     overflow: hidden;
   }
 
-  tr:hover {
+   tr:hover {
     background-color: #423F40;
+  }
+
+  #featureDef{
+    margin-top: 17px;
+    width:38%;
+    float:right;
+  }
+
+  #featureDef td{
+    font-size: 10px;
+  }
+
+  #featureDef th{
+    font-size: 12px;
+    width:20px;
   }
 
   #selectSong{
     padding-top: 3em;
-    text-align: center;
+    text-align: left;
   }
 
   #searchSong{
-    width:50%;
-    text-align: center;
+    width:40%;
+    text-align: left;
     position: relative;
-    left: 25%;
   }
 
   #response{
@@ -68,12 +96,11 @@ html body {
 
   #submitPlaylist{
     padding-top: 15px;
-    text-align: center;
+    text-align: left;
   }
 
   #songPreview{
-    /* position: relative; */
-    text-align: center;
+    text-align: left;
     padding-bottom: 4px;
   }
 
@@ -94,19 +121,48 @@ html body {
 
   .featrow{
     padding-bottom: 10px;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
+  .audfeat{
+    padding-left: 20%;
+    background-color: #1DB954;
+  }
+
+
   #featuresSelect{
-    width:70%;
+    position: relative;
     max-width: 500px;
     min-width: 400px;
+    margin-left:0;
+    /* float: left; */
     /* min-height: 150px; */
-
   }
 
   #submitBox{
-
     padding-top: 10px;
-    text-align: center;
+    text-align: left;
+    padding-left: 0%;
+    margin-left: 0;
   }
+
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

@@ -1,10 +1,11 @@
 $(document).ready(function() {
   $('#SelectedSongPreview').hide();
   $('#playlistGrid').hide();
+  $('#loader').hide();
 
   $('#songsearch').keyup(function() {
+    $('#submit').hide();
     var query = $('#songsearch').val();
-
     if (query.length > 1){
       $.ajax(
         {
@@ -23,8 +24,10 @@ $(document).ready(function() {
         }
       );
     }
-
-
+    if (query.length<=1){
+      $('#response').html("");
+      $('#submit').show();
+    }
   });
 
   $(document).on('click', 'li', function () {
@@ -32,7 +35,7 @@ $(document).ready(function() {
     // console.log(songChoice);
     $('#songsearch').val(songChoice);
     $('#response').html("");
-
+    $('#submit').show()
     $.ajax(
       {
         url:'callPy.php',
@@ -57,46 +60,52 @@ $(document).ready(function() {
 
 
   $(document).on('click','#submit', function() {
+    var selectFeatures = Array();
+    $.map($("input[name='audiofeature']:checked"), function(el){
+      selectFeatures.push($(el).val());
+    });
+    var selectedSongID = $('#secretCode').html();
+    selectFeatures.push(selectedSongID);
 
-  var selectFeatures = Array();
-  $.map($("input[name='audiofeature']:checked"), function(el){
-    selectFeatures.push($(el).val());
-  });
+    if(selectedSongID == 'null'){
+      alert('Please Search for and Select a Song');
+      return;
+    };
+    if(selectFeatures[0]==selectedSongID && selectFeatures.length ==1){
+      alert('Please Check at Least One Audio Feature')
+      return;
+    };
 
-  var selectedSongID = $('#secretCode').html();
-  selectFeatures.push(selectedSongID);
-  // console.log(selectFeatures);
+    $('#loader').show();
+    var jsonArr = JSON.stringify(selectFeatures);
 
-  var jsonArr = JSON.stringify(selectFeatures);
+    $.ajax(
+        {
+          url:'callPy.php',
+          method:'POST',
+          data:{features: jsonArr},
+          cache: false,
 
-  $.ajax(
-      {
-        url:'callPy.php',
-        method:'POST',
-        data:{features: jsonArr},
-        cache: false,
+        error: function() {
+          console.log("something went wrong");
+          $('#loader').hide();
+        },
+        success: function(data){
+          var df = JSON.parse(data);
+          console.log(df)
+          $('#playlistGrid').show();
+          var tblarr = Array('name','artists','year','acousticness','danceability','energy','instrumentalness','key','liveness','loudness','mode','popularity','speechiness','tempo','valence','distance');
 
-      error: function() {
-        console.log("something went wrong");
-      },
-      success: function(data){
-        var df = JSON.parse(data);
-        console.log(df)
-        $('#playlistGrid').show();
-        var tblarr = Array('name','artists','year','acousticness','danceability','energy','instrumentalness','key','liveness','loudness','mode','popularity','speechiness','tempo','valence','distance');
-
-        //then use jquery to put playlist items in grid
-        for(var i = 0;i < 10;i++){
-          $("#playlistGrid").append("<tr id = songrow".concat(i.toString()).concat("></tr>"));
-          for(var j = 0;j<tblarr.length;j++){
-            $("#songrow".concat(i.toString())).append("<td>".concat(df[tblarr[j]][i]).concat("</td>"));
+          //then use jquery to put playlist items in grid
+          for(var i = 0;i < 10;i++){
+            $("#playlistGrid").append("<tr id = songrow".concat(i.toString()).concat("></tr>"));
+            for(var j = 0;j<tblarr.length;j++){
+              $("#songrow".concat(i.toString())).append("<td>".concat(df[tblarr[j]][i]).concat("</td>"));
+            }
           }
-
+          $('#loader').hide();
         }
-
       }
-    }
-  );
+    );
   });
-
 });
