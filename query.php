@@ -1,16 +1,10 @@
 <?php
 
-// $host = "ec2-52-7-39-178.compute-1.amazonaws.com";
-// $user = "jybhgsdkfwysky";
-// $password = "eec042e14e6ca3afe7e68edf5de170ee293b790230a29dd719feb2e2d3fa6f9c";
-// $dbname = "d9pugpe7g2t1e6";
-// $port = "5432";
-
-// $connstring = "host=ec2-35-174-127-63.compute-1.amazonaws.com dbname=dql5qdqd4414m user=ydshrbbwrnvyrd password=c96b22a2f1b5ddfc521871921486eafeb0170eef63a5cce698c49b79d02697cb";
-
 
   if(!empty($_POST['search'])){
     $db_connect = pg_connect(getenv("DATABASE_URL"));
+    // $db_connect = pg_connect("host=localhost dbname=SpotifyData user=postgres password=giao");
+
     if (!$db_connect){
         echo "UNABLE TO CONNECT TO DATABASE.\n";
         exit;

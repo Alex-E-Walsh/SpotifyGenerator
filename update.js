@@ -4,7 +4,7 @@ $(document).ready(function() {
   $('#loader').hide();
   $('#featureDef').hide();
 
-  $('#songsearch').keyup(function() {
+  var showQresults = function(){
     $('#submit').hide();
     var query = $('#songsearch').val();
     if (query.length > 1){
@@ -28,14 +28,14 @@ $(document).ready(function() {
     if (query.length<=1){
       $('#response').html("");
       $('#submit').show();
-    }
-  });
+  }
+};
 
-  $(document).mouseup(function(e){
-    var selected = $('#response');
-    if (!selected.is(e.target) && selected.has(e.target).length === 0){
-      selected.hide();
-    }
+  $('#songsearch').keyup(showQresults);
+  $('#songsearch').on('click', showQresults);
+
+  $(document).on('click', 'body' ,function (){
+    $('#response').html("");
   });
 
   $(document).on('click', 'li', function () {
