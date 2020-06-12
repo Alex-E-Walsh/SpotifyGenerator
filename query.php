@@ -6,7 +6,7 @@
 // $dbname = "d9pugpe7g2t1e6";
 // $port = "5432";
 
-$db_connect = pg_connect(getenv("DATABASE_URL"));
+$db_connect = pg_connect("postgres://ydshrbbwrnvyrd:c96b22a2f1b5ddfc521871921486eafeb0170eef63a5cce698c49b79d02697cb@ec2-35-174-127-63.compute-1.amazonaws.com:5432/dql5qdqd4414m");
 
 
   if(!empty($_POST['search'])){
