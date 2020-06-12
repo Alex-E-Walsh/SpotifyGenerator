@@ -73,7 +73,7 @@
     </tr>
   </table>
 
-  <img id='spotifyLogo' src = "static/spotifylogo.png">
+  <img id='spotifyLogo' src = "static/spotifyLogo.png">
   <form name='select_features' onsubmit="return false">
     <div id = 'selectFeatures' class='container-fluid align-self-center'>
       <h4> Choose Features: </h4>

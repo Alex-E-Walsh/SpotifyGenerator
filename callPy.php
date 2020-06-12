@@ -5,7 +5,7 @@ putenv("PATH=/usr/local/bin/:" . exec('echo $PATH'));
 //run when user clicks on song
   if(!empty($_POST['py'])){
     $songSelect = $_POST['sc'];
-    $db_connect = pg_connect("DATABASE_URL");
+    $db_connect = pg_connect(getenv("DATABASE_URL"));
     if (!$db_connect){
         echo "UNABLE TO CONNECT TO DATABASE.\n";
         exit;
