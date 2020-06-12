@@ -1,5 +1,5 @@
 {
-  "name":"PlaylistGenerator",
+  "name":"walsh/playlistgenerator",
   "require":{
     "php":"^7.2.0"
   },
@@ -7,6 +7,6 @@
     "pre-install-cmd":"pip install pandas",
     "pre-install-cmd":"pip install numpy",
     "pre-install-cmd":"pip install joblib",
-    "pre-install-cmd":"pip install scikit-learn",
+    "pre-install-cmd":"pip install scikit-learn"
   }
 }
