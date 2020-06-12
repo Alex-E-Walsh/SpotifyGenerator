@@ -31,6 +31,13 @@ $(document).ready(function() {
     }
   });
 
+  $(document).mouseup(function(e){
+    var selected = $('#response');
+    if (!selected.is(e.target) && selected.has(e.target).length === 0){
+      selected.hide();
+    }
+  });
+
   $(document).on('click', 'li', function () {
     var songChoice = $(this).text().split(" By:")[0];
     // console.log(songChoice);
