@@ -4,8 +4,8 @@
     "php":"^7.2.0"
   },
   "scripts":{
-    "pre-install-cmd":"pip install pandas",
-    "pre-install-cmd":"pip install numpy",
-    "pre-install-cmd":"pip install joblib"
+    "pre-file-download":"pip install pandas",
+    "pre-file-download":"pip install numpy",
+    "pre-file-download":"pip install joblib"
   }
 }
