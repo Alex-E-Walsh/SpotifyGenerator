@@ -1,5 +1,5 @@
 <?php
-putenv("PATH=/usr/local/bin/:" . exec('echo $PATH'));
+// putenv("PATH=/usr/local/bin/:" . exec('echo $PATH'));
 //update route to correct python3
 
 //run when user clicks on song
