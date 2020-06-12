@@ -8,10 +8,9 @@
 
 // $connstring = "host=ec2-35-174-127-63.compute-1.amazonaws.com dbname=dql5qdqd4414m user=ydshrbbwrnvyrd password=c96b22a2f1b5ddfc521871921486eafeb0170eef63a5cce698c49b79d02697cb";
 
-$db_connect = pg_connect(getenv("DATABASE_URL"));
 
   if(!empty($_POST['search'])){
-    $db_connect = pg_connect(getenv($dsn));
+    $db_connect = pg_connect(getenv("DATABASE_URL"));
     if (!$db_connect){
         echo "UNABLE TO CONNECT TO DATABASE.\n";
         exit;
