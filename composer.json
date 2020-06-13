@@ -1,8 +1,0 @@
-{
-  "name":"walsh/playlistgenerator",
-
-  "require":{
-    "php":"^7.2.0",
-  }
-
-}

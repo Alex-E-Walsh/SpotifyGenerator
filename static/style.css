@@ -22,11 +22,11 @@ html body {
   #spotifyLogo{
     position: absolute;
     opacity: 50%;
-    width:300px;
-    left: 460px;
-    top: 40px;
+    width:270px;
+    left: 440px;
+    top: 70px;
     transform: rotate(20deg);
-    z-index: 0;
+    z-index: -1;
   }
   #featureToggle{
     font-size: 12px;
@@ -74,8 +74,12 @@ html body {
     position: relative;
   }
   #response{
+    z-index: 10;
+    position: absolute;
     color:black;
-    padding-left: 6%;
+    top:40px;
+    float: left;
+    padding-left: 7%;
   }
   #submitPlaylist{
     padding-top: 15px;

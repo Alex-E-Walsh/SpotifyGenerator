@@ -5,29 +5,24 @@ $(document).ready(function() {
   $('#featureDef').hide();
 
   var showQresults = function(){
-    $('#submit').hide();
     var query = $('#songsearch').val();
     if (query.length > 1){
       $.ajax(
         {
-          url:'index.php',
+          url:"/query",
           method:'POST',
-          data: {
-            search:1,
-            q:query
-          },
+          data: {q:query},
           error: function(){
             console.log('AJAX: something went wrong');
           },
-          complete: function(data){
-            $('#response').html(data['responseText']);
+          success: function(data){
+            $('#response').html(data);
           },
         }
       );
     }
     if (query.length<=1){
       $('#response').html("");
-      $('#submit').show();
   }
 };
 
@@ -40,22 +35,19 @@ $(document).ready(function() {
 
   $(document).on('click', 'li', function () {
     var songChoice = $(this).text().split(" By:")[0];
-    // console.log(songChoice);
     $('#songsearch').val(songChoice);
     $('#response').html("");
     $('#submit').show()
     $.ajax(
       {
-        url:'callPy.php',
+        url:"/getcode",
         method:'POST',
-        data:{
-          py:1,
-          sc:songChoice
-        },
+        data:{sc:songChoice},
         error: function (){
           console.log('unable to call script');
         },
         success: function(data){
+          console.log(data)
           $('#secretCode').html(data);
           var embedcode = "https://open.spotify.com/embed/track/".concat(data);
           $('#SelectedSongPreview').attr("src",embedcode);
@@ -89,7 +81,7 @@ $(document).ready(function() {
 
     $.ajax(
         {
-          url:'callPy.php',
+          url:"/genplaylist",
           method:'POST',
           data:{features: jsonArr},
           cache: false,
