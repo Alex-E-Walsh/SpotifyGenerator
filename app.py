@@ -7,11 +7,15 @@ import pandas as pd
 import numpy as np
 from sklearn.neighbors import NearestNeighbors as nn
 import joblib
+import os
+
 
 app = Flask(__name__)
 
 try:
-    conn = pg.connect(dbname='SpotifyData', user='postgres', host='localhost', password='giao')
+    DATABASE_URL = os.environ['DATABASE_URL']
+    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    # conn = pg.connect(dbname='SpotifyData', user='postgres', host='localhost', password='giao')
     cur = conn.cursor()
 except:
     print("I am unable to connect to the database")
