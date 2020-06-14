@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 try:
     DATABASE_URL = os.environ['DATABASE_URL']
-    conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+    conn = pg.connect(DATABASE_URL, sslmode='require')
     # conn = pg.connect(dbname='SpotifyData', user='postgres', host='localhost', password='giao')
     cur = conn.cursor()
 except:
