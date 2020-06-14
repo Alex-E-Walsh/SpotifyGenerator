@@ -57,7 +57,6 @@ $(document).ready(function() {
     );
   });
 
-
   $(document).on('click','#submit', function() {
     $('#playlistGrid').hide();
     var selectFeatures = Array();
@@ -75,10 +74,8 @@ $(document).ready(function() {
       alert('Please Check at Least One Audio Feature')
       return;
     };
-
     $('#loader').show();
     var jsonArr = JSON.stringify(selectFeatures);
-
     $.ajax(
         {
           url:"/genplaylist",
