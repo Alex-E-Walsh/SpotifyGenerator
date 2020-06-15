@@ -1,13 +1,12 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 import psycopg2 as pg
-import json
-import sys
+import os
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import NearestNeighbors as nn
-import joblib
-import os
+from sklearn.preprocessing import MinMaxScaler as mms
+# import joblib
 
 app = Flask(__name__)
 
@@ -50,11 +49,13 @@ def buildcode():
 
 @app.route("/genplaylist",methods=['POST','GET'])
 def genPlaylist():
-    #read in dataframe
+    #read in dataframes
     df = pd.read_csv("spotify_data/cleaned_df.csv")
     df.drop("Unnamed: 0",axis=1,inplace=True)
+    sdf = pd.read_csv("spotify_data/scaled_song_data.csv")
+    sdf.drop("Unnamed: 0",axis=1,inplace=True)
     #read in knn model from joblib
-    nghbr = joblib.load("spotify_data/knn_jblib.pkl")
+    # nghbr = joblib.load("spotify_data/knn_jblib.pkl")
     #read user inputted song + selected features
     feats = request.form['features']
     #clean feature array from json
@@ -62,10 +63,10 @@ def genPlaylist():
     feats = [e.strip('"') for e in feats]
     id = feats[-1]
     feats = feats[:-1]
-    # get audio features from csv
-    audioVals = df[df['id']==id][feats]
+    # get audio features from scaled csv
+    audioVals = sdf[sdf['id']==id][feats]
     #make custom training data for each features
-    custom_df = df[feats]
+    custom_df = sdf[feats]
     #build specific knn using user selected features
     neighbor = nn(n_neighbors=10,algorithm='kd_tree',metric='euclidean', n_jobs=-1)
     neighbor.fit(custom_df)
